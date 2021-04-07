@@ -18,6 +18,7 @@ const Search: React.FC = (): JSX.Element => {
           type="search"
           placeholder="Search"
           value={search}
+          autoComplete="off"
           onChange={event => dispatch(updateSearchAction(event.target.value))}
         />
         <label className="label-icon" htmlFor="search"><i className="material-icons">search</i></label>
