@@ -1,8 +1,13 @@
 import React from 'react'
 import classNames from 'classnames'
 import moment from 'moment'
+import {useDispatch, useSelector} from 'react-redux'
+import {isEmpty} from 'lodash'
 
-import { INews } from 'interfaces/news.interface'
+import {INews} from 'interfaces/news.interface'
+import {RootState} from 'store/reducers/rootReducer'
+import {addBookmarkAction, deleteBookmarkAction} from 'store/actions/booksmarksActions'
+
 import './style.scss'
 
 interface ICardProps {
@@ -12,6 +17,9 @@ interface ICardProps {
 }
 
 const Card: React.FC<ICardProps> = ({item, size, type}): JSX.Element => {
+  const {bookmarks} = useSelector((state: RootState) => state.bookmarksState)
+  const dispatch = useDispatch()
+
   const cardClasses = (): string => {
     return classNames({
       'news-card': true,
@@ -19,6 +27,16 @@ const Card: React.FC<ICardProps> = ({item, size, type}): JSX.Element => {
       small: size === 'small'
     })
   }
+
+  const handleBookmark = (item: INews) => {
+    if (isEmpty(isBookmark(item))) {
+      dispatch(addBookmarkAction(item))
+    } else {
+      dispatch(deleteBookmarkAction(item))
+    }
+  }
+
+  const isBookmark = (item: INews) => bookmarks.find((bookmark: INews) => bookmark.id === item.id)
 
   return (
     <div
@@ -64,7 +82,12 @@ const Card: React.FC<ICardProps> = ({item, size, type}): JSX.Element => {
           }
           <div className="date">{moment(item.datetime).format('DD MMM')}</div>
           <div className="bookmark">
-            <i className="material-icons">bookmark_border</i>
+            <i
+              className="material-icons"
+              onClick={() => handleBookmark(item)}
+            >
+              {isBookmark(item) ? 'bookmark' : 'bookmark_border'}
+            </i>
           </div>
         </div>
       </div>
