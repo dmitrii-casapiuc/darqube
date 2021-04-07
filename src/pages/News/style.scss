@@ -1,0 +1,17 @@
+.news {
+  .wrapper-content {
+    display: flex;
+
+    .last-news {
+      margin-right: 25px;
+    }
+
+    .content {
+      .all-news {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-gap: 20px;
+      }
+    }
+  }
+}

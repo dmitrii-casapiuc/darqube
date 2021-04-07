@@ -1,8 +1,19 @@
 import React from 'react'
+import {Switch, Route, Redirect} from 'react-router-dom'
 
-function App(): JSX.Element  {
+import Main from 'layouts/Main'
+import News from 'pages/News'
+import Bookmarks from 'pages/Bookmarks/'
+
+const App: React.FC = (): JSX.Element => {
   return (
-    <div className="App">Test</div>
+    <Main>
+      <Switch>
+        <Route exact path="/" component={News} />
+        <Route path="/bookmarks" component={Bookmarks} />
+        <Redirect to="/" />
+      </Switch>
+    </Main>  
   )
 }
 
