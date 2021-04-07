@@ -1,5 +1,9 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
+import {useDispatch, useSelector} from 'react-redux'
+
+import {RootState} from 'store/reducers/rootReducer'
+import {updateSearchAction} from 'store/actions/appActions'
 
 import './style.scss'
 
@@ -23,10 +27,25 @@ const menu: IMenu[] = [
 ]
 
 const Navbar: React.FC = (): JSX.Element => {
+  const {search} = useSelector((state: RootState) => state.appState)
+  const dispatch = useDispatch()
+
+  const handleClick = () => {
+    if (search) dispatch(updateSearchAction(''))
+  }
+
   return (
     <ul className="navbar">
       {
-        menu.map((item: IMenu): JSX.Element => <li key={item.id}><NavLink exact to={item.to}>{item.title}</NavLink></li>)
+        menu.map((item: IMenu): JSX.Element => <li key={item.id}>
+          <NavLink
+            exact
+            to={item.to}
+            onClick={() => handleClick()}
+          >
+            {item.title}
+          </NavLink>
+        </li>)
       }
     </ul>
   )

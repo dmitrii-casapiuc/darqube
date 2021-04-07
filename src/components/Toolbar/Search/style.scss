@@ -7,10 +7,14 @@
     background-color: #191818;
     border-radius: 5px;
 
-    #search:focus {
-      background-color: #191818d9;
+    #search {
       color: #fff;
-      border-radius: 5px;
+
+      &:focus {
+        background-color: #191818d9;
+        color: #fff;
+        border-radius: 5px;
+      }
     }
 
     .label-icon {
