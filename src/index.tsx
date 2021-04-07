@@ -8,7 +8,7 @@ import store from './store'
 import reportWebVitals from './reportWebVitals'
 import App from './App'
 
-import './index.scss'
+import './styles/index.scss'
 
 const app = (
   <React.StrictMode>

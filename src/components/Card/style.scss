@@ -1,9 +1,11 @@
+@import "src/styles/variables";
+
 .news-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #000;
-  color: #fff;
+  background-color: $black;
+  color: $white;
   border-radius: 6px;
   padding: 30px;
   
@@ -31,7 +33,7 @@
 
     .latest-research {
       font-size: 10px;
-      background-color: #B73556;
+      background-color: $pink;
       padding: 2px 15px;
       text-transform: uppercase;
     }
@@ -49,7 +51,7 @@
     .actions {
       display: flex;
       align-items: center;
-      margin-top: 30px;
+      margin-top: 20px;
 
       .read a {
         display: flex;

@@ -1,3 +1,5 @@
+@import "src/styles/variables";
+
 .custom-pagination {
   display: flex;
   margin-top: 30px;
@@ -12,22 +14,22 @@
 
   .rc-pagination-total-text {
     font-size: 14px;
-    color: #fff;
+    color: $white;
 
     span {
-      color: #3F4040;
+      color: $dark-gray;
       margin-left: 7px;
     }
   }
 
   .rc-pagination-prev,
   .rc-pagination-next {
-    background-color: #3C3C3C;
+    background-color: $dark-gray-2;
     border-radius: 60px;
     font-size: 10px;
     font-weight: bold;
     text-transform: uppercase;
-    color: #fff;
+    color: $white;
     width: 110px;
 
     &:hover {

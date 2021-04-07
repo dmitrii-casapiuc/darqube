@@ -1,18 +1,20 @@
+@import "src/styles/variables";
+
 .search-form {
   height: 40px;
   max-width: 250px;
   width: 100%;
 
   .input-field {
-    background-color: #191818;
+    background-color: $black-2;
     border-radius: 5px;
 
     #search {
-      color: #fff;
+      color: $white;
 
       &:focus {
-        background-color: #191818d9;
-        color: #fff;
+        background-color: $black-3;
+        color: $white;
         border-radius: 5px;
       }
     }
