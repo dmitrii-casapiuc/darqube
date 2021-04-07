@@ -1,15 +1,17 @@
 .news {
   .wrapper-content {
-    display: flex;
+    display: grid;
+    grid-template-columns: 480px auto;
+    grid-gap: 20px;
 
-    .last-news {
-      margin-right: 25px;
+    @media screen and (max-width: 1160px) {
+      grid-template-columns: auto;
     }
 
     .content {
       .all-news {
         display: grid;
-        grid-template-columns: auto auto auto;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         grid-gap: 20px;
       }
     }

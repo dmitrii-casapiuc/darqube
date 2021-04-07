@@ -14,5 +14,11 @@
         background-color: transparent;
       }
     }
+
+    &:last-child {
+      a {
+        padding: 0;
+      }
+    }
   }
 }

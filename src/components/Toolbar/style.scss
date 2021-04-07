@@ -1,10 +1,17 @@
 .toolbar {
   background-color: transparent;
   box-shadow: none;
+  height: auto;
 
   .nav-wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media screen and (max-width: 620px) {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
   }
 }
