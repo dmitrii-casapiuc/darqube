@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {AxiosResponse} from 'axios'
 import {isEmpty} from 'lodash'
+import {useDispatch, useSelector} from 'react-redux'
 
 import { INews } from 'interfaces/news.interface'
 import { fetchNews } from 'api/news'
@@ -9,23 +10,28 @@ import Card from 'components/Card'
 import CustomPagination from 'components/Pagination'
 
 import './style.scss'
+import { updateNewsAction } from 'store/actions/newsActions'
+import { RootState } from 'store/reducers/rootReducer'
 
 const News: React.FC = (): JSX.Element => {
-  const [news, setNews] = useState<INews[]>([])
   const [loading, setLoading] = useState<boolean>(false)
   const [currentPage, setCurrentPage] = useState<number>(1)
   const [newsPerPage] = useState<number>(6)
+  const {news} = useSelector((state: RootState) => state.newsState)
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    fetch()
-  }, [])
+    if (isEmpty(news)) {
+      fetch()
+    }
+  }, [news])
 
   const fetch = async (): Promise<void> => {
     setLoading(true)
 
     try {
       const {data}: AxiosResponse<INews[]> = await fetchNews()
-      setNews(data)
+      dispatch(updateNewsAction(data))
     } catch (e) {
       console.log(e)
     } finally {
@@ -33,14 +39,13 @@ const News: React.FC = (): JSX.Element => {
     }
   }
 
-  // Get current news
-  const indexOfLastNews = currentPage * newsPerPage
-  const indexOfFirstNews = indexOfLastNews - newsPerPage
-  const currentNews = news.slice(indexOfFirstNews, indexOfLastNews)
-
   const handlePageClick = (page: number): void => {
     setCurrentPage(page)
   }
+  
+  const indexOfLastNews = currentPage * newsPerPage
+  const indexOfFirstNews = indexOfLastNews - newsPerPage
+  const currentNews = news.slice(indexOfFirstNews, indexOfLastNews)
 
   return (
     <div className="news">

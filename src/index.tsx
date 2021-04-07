@@ -1,18 +1,22 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {BrowserRouter as Router} from 'react-router-dom'
+import {Provider} from 'react-redux'
 import 'materialize-css'
 
-import App from './App'
+import store from './store'
 import reportWebVitals from './reportWebVitals'
+import App from './App'
 
 import './index.scss'
 
 const app = (
   <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <App />
+      </Router>
+    </Provider>
   </React.StrictMode>
 )
 
