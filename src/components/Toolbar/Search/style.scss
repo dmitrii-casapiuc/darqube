@@ -1,0 +1,22 @@
+.search-form {
+  height: 40px;
+  max-width: 250px;
+  width: 100%;
+
+  .input-field {
+    background-color: #191818;
+    border-radius: 5px;
+
+    #search:focus {
+      background-color: #191818d9;
+      color: #fff;
+    }
+
+    .label-icon {
+      i {
+        height: 40px;
+        line-height: 40px;
+      }
+    }
+  }
+}

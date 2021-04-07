@@ -1,4 +1,10 @@
 .toolbar {
   background-color: transparent;
   box-shadow: none;
+
+  .nav-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }

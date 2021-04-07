@@ -5,13 +5,14 @@ import {useDispatch, useSelector} from 'react-redux'
 
 import { INews } from 'interfaces/news.interface'
 import { fetchNews } from 'api/news'
+
 import Preloader from 'components/Preloader'
 import Card from 'components/Card'
 import CustomPagination from 'components/Pagination'
-
-import './style.scss'
 import { updateNewsAction } from 'store/actions/newsActions'
 import { RootState } from 'store/reducers/rootReducer'
+
+import './style.scss'
 
 const News: React.FC = (): JSX.Element => {
   const [loading, setLoading] = useState<boolean>(false)
@@ -56,7 +57,7 @@ const News: React.FC = (): JSX.Element => {
             ? <p className="no-data">No data</p>
             : (
               <div className="wrapper-content">
-                <div className="last-news"><Card item={news[0]} size="big" type="last" /></div>
+                <div className="last-news"><Card item={news[news.length - 1]} size="big" type="last" /></div>
                 <div className="content">
                   <div className="all-news">
                     {
