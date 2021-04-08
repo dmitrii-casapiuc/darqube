@@ -4,6 +4,10 @@
 body {
   background-color: $dark;
   padding: 65px 30px;
+
+  @media screen and (max-width: 620px) {
+    padding: 40px 30px;
+  }
 }
 
 #root {

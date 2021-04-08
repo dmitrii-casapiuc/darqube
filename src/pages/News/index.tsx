@@ -30,7 +30,7 @@ const News: React.FC = (): JSX.Element => {
   }, [news])
 
   useEffect(() => {
-    const results = news.filter((item: INews) => item.headline.toLowerCase().includes(search))
+    const results = news.filter((item: INews) => item.headline.toLowerCase().includes(search.toLowerCase()))
     setSearchResults(results)
   }, [search])
 

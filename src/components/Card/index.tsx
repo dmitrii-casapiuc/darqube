@@ -51,7 +51,7 @@ const Card: React.FC<ICardProps> = ({item, size, type}): JSX.Element => {
         <span className="related">{item.related}</span>
         {
           type === 'last'
-            ? <span className="latest-research">latest research</span>
+            ? <span className="latest-research">latest news</span>
             : ''
         }
       </div>

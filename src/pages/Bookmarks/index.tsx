@@ -14,7 +14,7 @@ const Bookmarks: React.FC = (): JSX.Element => {
   const [searchResults, setSearchResults] = useState<INews[]>(bookmarks)
 
   useEffect(() => {
-    const results = bookmarks.filter((bookmark: INews) => bookmark.headline.toLowerCase().includes(search))
+    const results = bookmarks.filter((bookmark: INews) => bookmark.headline.toLowerCase().includes(search.toLowerCase()))
     setSearchResults(results)
   }, [search, bookmarks])
 
