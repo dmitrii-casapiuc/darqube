@@ -42,7 +42,7 @@ const Card: React.FC<ICardProps> = ({item, size, type}): JSX.Element => {
     <div
       className={cardClasses()}
       style={{
-        background: `linear-gradient(rgba(0,0,0, 0.40), rgba(0,0,0, 0.40)), url("${item.image}")`,
+        background: `linear-gradient(rgba(28,58,82,0), rgba(5,20,27,1)), url("${item.image}")`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
@@ -81,6 +81,8 @@ const Card: React.FC<ICardProps> = ({item, size, type}): JSX.Element => {
               : ''
           }
           <div className="date">{moment(item.datetime).format('DD MMM')}</div>
+          <div className="last-read">6 min read</div>
+          <div className="source"><i className="material-icons">call_split</i></div>
           <div className="bookmark">
             <i
               className="material-icons"
